@@ -36,7 +36,7 @@ const start = async () => {
  
     try {
       if (text === '/start') {
-       await UserModel.sync({chatId});
+        await UserModel.sync({chatId});
         return bot.sendMessage(chatId, 'Добро пожаловать в наш телеграм-бот!');
       }
       if (text === '/info') {
