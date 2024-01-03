@@ -29,13 +29,14 @@ const start = async () => {
     {command: '/info', description: 'Получить информацию о пользователе'},
     {command: '/game', description: 'Игра. Угадай число от 0 до 9'}
   ]);
+
   bot.on('message', async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
-
+ 
     try {
       if (text === '/start') {
-        await UserModel.create({chatId});
+       await UserModel.sync({chatId});
         return bot.sendMessage(chatId, 'Добро пожаловать в наш телеграм-бот!');
       }
       if (text === '/info') {
